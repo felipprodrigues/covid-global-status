@@ -9,6 +9,8 @@ export const Container = styled.div`
 `
 
 export const Section = styled.section`
-
+  &:last-child {
+    padding: 0 3rem;
+  }
 `
 

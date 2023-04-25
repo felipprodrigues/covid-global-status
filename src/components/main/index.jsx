@@ -10,7 +10,13 @@ import {
 import CarouselComponent from './carousel'
 
 // HELPERS
-// import handleSum from '../../helpers/handleSum'
+import handleSum from '../helpers/handleSum'
+
+// ICONS
+import africa from '../../assets/africa.svg'
+import asia from '../../assets/asia.svg'
+import europe from '../../assets/europe.svg'
+import america from '../../assets/america.svg'
 
 
 //!!!eventual links
@@ -89,12 +95,51 @@ function Index() {
     });
   };
 
+  const carouselData = [
+    {
+      icon: africa,
+      label: 'Africa',
+      recoveryData: handleSum(filteredData.africa, 'recovered'),
+      casesData: handleSum(filteredData.africa, 'cases')
+    },
+    {
+      icon: asia,
+      label: 'Asia',
+      recoveryData: handleSum(filteredData.asia, 'recovered'),
+      casesData: handleSum(filteredData.asia, 'cases')
+    },
+    {
+      icon: europe,
+      label: 'Europe',
+      recoveryData: handleSum(filteredData.europe, 'recovered'),
+      casesData: handleSum(filteredData.europe, 'cases')
+    },
+    {
+      icon: america,
+      label: 'North America',
+      recoveryData: handleSum(filteredData.northAmerica, 'recovered'),
+      casesData: handleSum(filteredData.northAmerica, 'cases')
+    },
+    {
+      icon: america,
+      label: 'South America',
+      recoveryData: handleSum(filteredData.southAmerica, 'recovered'),
+      casesData: handleSum(filteredData.southAmerica, 'cases')
+    },
+    {
+      icon: asia,
+      label: 'Australia / Oceania',
+      recoveryData: handleSum(filteredData.ausOceania, 'recovered'),
+      casesData: handleSum(filteredData.ausOceania, 'cases')
+    },
+  ]
+
   return (
     <Container>
       <Section>
 
       <CarouselComponent
-        filteredData={filteredData}
+        carouselData={carouselData}
       />
 
       </Section>
