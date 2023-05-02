@@ -8,6 +8,7 @@ import {
 
 // components
 import CarouselComponent from './carousel'
+import TableComponent from './statistics'
 
 // HELPERS
 import handleSum from '../helpers/handleSum'
@@ -39,6 +40,8 @@ function Index() {
 
     setData(data)
   }
+
+  console.log(data, 'aqui os dados')
 
   useEffect(() => {
     handleAllData();
@@ -134,17 +137,26 @@ function Index() {
     },
   ]
 
+  console.log(filteredData.asia, '12312412')
   return (
     <Container>
-      <Section>
+      <Section id="main-section">
+        <CarouselComponent
+          carouselData={carouselData}
+        />
 
-      <CarouselComponent
-        carouselData={carouselData}
-      />
+        <TableComponent filteredData={filteredData.asia} label="Asia"/>
+        <TableComponent filteredData={filteredData.africa} label="Africa"/>
+        <TableComponent filteredData={filteredData.europe} label="Europe"/>
+        <TableComponent filteredData={filteredData.ausOceania} label="Australia / Oceania"/>
+        <TableComponent filteredData={filteredData.northAmerica} label="North America"/>
+        <TableComponent filteredData={filteredData.southAmerica} label="South America"/>
 
       </Section>
 
-      <Section>
+      <Section
+        style={{display: 'flex', flexDirection: 'column'}}
+      >
         extra
         extra
         extra

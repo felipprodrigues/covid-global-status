@@ -22,14 +22,15 @@ function CarouselComponent({
     <Container>
       <Main>
         <Carousel
+          style={{maxWidth: '730px !important', width: '100% !important'}}
           centerMode={true}
           centerSlidePercentage={30}
           interval={2000}
           showArrows
           transitionTime={1000}
           useKeyboardArrows={true}
-          // width={'60%'}
           showThumbs={false}
+          // width={'40%'}
           preventMovementUntilSwipeScrollTolerance={true}
           showStatus={false}
           showIndicators={false}
