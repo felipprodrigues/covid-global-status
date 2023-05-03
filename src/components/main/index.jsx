@@ -8,9 +8,16 @@ import {
 
 // components
 import CarouselComponent from './carousel'
+import TableComponent from './statistics'
 
 // HELPERS
-// import handleSum from '../../helpers/handleSum'
+import handleSum from '../helpers/handleSum'
+
+// ICONS
+import africa from '../../assets/africa.svg'
+import asia from '../../assets/asia.svg'
+import europe from '../../assets/europe.svg'
+import america from '../../assets/america.svg'
 
 
 //!!!eventual links
@@ -33,6 +40,8 @@ function Index() {
 
     setData(data)
   }
+
+  console.log(data, 'aqui os dados')
 
   useEffect(() => {
     handleAllData();
@@ -89,17 +98,65 @@ function Index() {
     });
   };
 
+  const carouselData = [
+    {
+      icon: africa,
+      label: 'Africa',
+      recoveryData: handleSum(filteredData.africa, 'recovered'),
+      casesData: handleSum(filteredData.africa, 'cases')
+    },
+    {
+      icon: asia,
+      label: 'Asia',
+      recoveryData: handleSum(filteredData.asia, 'recovered'),
+      casesData: handleSum(filteredData.asia, 'cases')
+    },
+    {
+      icon: europe,
+      label: 'Europe',
+      recoveryData: handleSum(filteredData.europe, 'recovered'),
+      casesData: handleSum(filteredData.europe, 'cases')
+    },
+    {
+      icon: america,
+      label: 'North America',
+      recoveryData: handleSum(filteredData.northAmerica, 'recovered'),
+      casesData: handleSum(filteredData.northAmerica, 'cases')
+    },
+    {
+      icon: america,
+      label: 'South America',
+      recoveryData: handleSum(filteredData.southAmerica, 'recovered'),
+      casesData: handleSum(filteredData.southAmerica, 'cases')
+    },
+    {
+      icon: asia,
+      label: 'Australia / Oceania',
+      recoveryData: handleSum(filteredData.ausOceania, 'recovered'),
+      casesData: handleSum(filteredData.ausOceania, 'cases')
+    },
+  ]
+
+  console.log(filteredData.asia, '12312412')
   return (
     <Container>
-      <Section>
+      <Section id="main-section">
+        <CarouselComponent
+          carouselData={carouselData}
+        />
 
-      <CarouselComponent
-        filteredData={filteredData}
-      />
+        <TableComponent filteredData={filteredData.asia} label="Asia"/>
+        <TableComponent filteredData={filteredData.africa} label="Africa"/>
+        <TableComponent filteredData={filteredData.europe} label="Europe"/>
+        <TableComponent filteredData={filteredData.ausOceania} label="Australia / Oceania"/>
+        <TableComponent filteredData={filteredData.northAmerica} label="North America"/>
+        <TableComponent filteredData={filteredData.southAmerica} label="South America"/>
 
       </Section>
 
-      <Section>
+      <Section
+        style={{display: 'flex', flexDirection: 'column'}}
+      >
         extra
         extra
         extra

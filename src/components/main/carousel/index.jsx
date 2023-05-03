@@ -1,135 +1,74 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React from 'react'
 
 import {
   Container,
-  ButtonWrapper,
-  ButtonHolder,
-  Button,
   Main,
-  MainCards,
-  CardsImage,
-  CardsContent,
-  CardsContentMain,
-  CardsContentSpan
+  Cards,
+  CardImageHolder,
+  CardImage,
+  CardTitle,
+  CardContent,
+  CardContentItems
 } from './styles'
 
 // COMPONENTS
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
-// HELPERS
-import handleSum from '../../helpers/handleSum'
-
-// ICONS
-import africa from '../../../assets/africa.svg'
-import asia from '../../../assets/asia.svg'
-import europe from '../../../assets/europe.svg'
-import america from '../../../assets/america.svg'
-
 function CarouselComponent({
-  filteredData,
+  carouselData
 }) {
-
-
-  console.log(handleSum(filteredData.asia, 'recovered'))
   return (
-    <Container >
+    <Container>
       <Main>
         <Carousel
+          style={{maxWidth: '730px !important', width: '100% !important'}}
           centerMode={true}
-          centerSlidePercentage={100}
+          centerSlidePercentage={30}
           interval={2000}
           showArrows
           transitionTime={1000}
           useKeyboardArrows={true}
-          width={'100%'}
           showThumbs={false}
+          // width={'40%'}
+          preventMovementUntilSwipeScrollTolerance={true}
+          showStatus={false}
+          showIndicators={false}
         >
-            <MainCards>
-              <img src={africa} style={{maxWidth: '75px'}}/>
+          {carouselData.map((item, index) => {
+            return (
+              <>
+                <Cards
+                  className="carousel__cards"
+                  key={`carousel-${item.label}-card-${index}`}
+                >
+                  <CardImage src={item.icon}/>
 
-              <p>Africa</p>
-              <div>
-                <h3>Recovery</h3>
-                <span>{handleSum(filteredData.africa, 'recovered')}</span>
-              </div>
-              <div>
-                <h3>Total Cases</h3>
-                <p>{handleSum(filteredData.africa, 'cases')}</p>
-              </div>
-            </MainCards>
-            <MainCards>
+                  <CardImageHolder>
+                    <span>
+                      Continent
+                      <CardTitle>{item.label}</CardTitle>
+                    </span>
+                  </CardImageHolder>
 
-              <img src={asia} style={{maxWidth: '75px'}}/>
-
-
-              <p>Asia</p>
-              <div>
-                <h3>Recovery</h3>
-                <span>{handleSum(filteredData.asia, 'recovered')}</span>
-              </div>
-              <div>
-                <h3>Total Cases</h3>
-                <p>{handleSum(filteredData.asia, 'cases')}</p>
-              </div>
-            </MainCards>
-
-            <MainCards>
-              <img src={europe} style={{maxWidth: '75px'}}/>
-              <p>Europe</p>
-
-              <div>
-                <h3>Recovery</h3>
-                <span>{handleSum(filteredData.europe, 'recovered')}</span>
-              </div>
-              <div>
-                <h3>Total Cases</h3>
-                <p>{handleSum(filteredData.europe, 'cases')}</p>
-              </div>
-            </MainCards>
-
-            <MainCards>
-              <img src={america} style={{maxWidth: '75px'}}/>
-              <p>Europe</p>
-
-              <div>
-                <h3>Recovery</h3>
-                <span>{handleSum(filteredData.northAmerica, 'recovered')}</span>
-              </div>
-              <div>
-                <h3>Total Cases</h3>
-                <p>{handleSum(filteredData.northAmerica, 'cases')}</p>
-              </div>
-            </MainCards>
-
-            <MainCards>
-              <img src={america} style={{maxWidth: '75px'}}/>
-              <p>Europe</p>
-
-              <div>
-                <h3>Recovery</h3>
-                <span>{handleSum(filteredData.southAmerica, 'recovered')}</span>
-              </div>
-              <div>
-                <h3>Total Cases</h3>
-                <p>{handleSum(filteredData.southAmerica, 'cases')}</p>
-              </div>
-            </MainCards>
-
-            <MainCards>
-              <img src={asia} style={{maxWidth: '75px'}}/>
-              <p>Europe</p>
-
-              <div>
-                <h3>Recovery</h3>
-                <span>{handleSum(filteredData.ausOceania, 'recovered')}</span>
-              </div>
-              <div>
-                <h3>Total Cases</h3>
-                <p>{handleSum(filteredData.ausOceania, 'cases')}</p>
-              </div>
-            </MainCards>
-
+                  <CardContent>
+                    <CardContentItems>
+                      <span>
+                        Recovery
+                        <h3>{item.recoveryData}</h3>
+                      </span>
+                    </CardContentItems>
+                    <CardContentItems>
+                      <span>
+                        Cases
+                        <h3>{item.casesData}</h3>
+                      </span>
+                    </CardContentItems>
+                  </CardContent>
+                </Cards>
+              </>
+            )
+          })}
         </Carousel>
       </Main>
 
