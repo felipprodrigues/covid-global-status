@@ -4,34 +4,33 @@ const tableSpecs = css`
   display: grid;
   grid-template-columns: ${(props) => props.gridColumns};
   grid-gap: .75rem;
+  padding: 1rem;
 `
 
 export const Container = styled.div`
   display: flex;
-  flex: 0 1;
 `
 
 export const Table = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: rgb(39, 26, 48);
   border-radius: 10px;
-  padding: 1rem;
   position: relative;
-`
+  background-color:  #432d53;
+  width: 100%;
+  `
 
 export const TableLabel = styled.h3`
-
+  padding: 1.5rem;
 `
 
 export const TableHead = styled.div`
   ${tableSpecs};
-  padding: 1.5rem 0;
+  background-color: rgb(39, 26, 48);
   position: sticky;
-  top: 2%;
+  top: 0;
   z-index: 999;
 `
-
 
 export const TableBody = styled.div`
   ${tableSpecs};

@@ -8,7 +8,9 @@ import {
 
 // components
 import CarouselComponent from './carousel'
-import TableComponent from './statistics'
+import TableComponent from './tables'
+import TabsComponent from './tabs'
+import Charts from './charts'
 
 // HELPERS
 import handleSum from '../helpers/handleSum'
@@ -26,6 +28,7 @@ import america from '../../assets/america.svg'
 
 function Index() {
   const [data, setData] = useState([])
+  const [tabIndex, setTabIndex] = useState(0)
   const [filteredData, setFilteredData] = useState({
     asia: [],
     africa: [],
@@ -35,14 +38,6 @@ function Index() {
     ausOceania: []
 });
 
-  const handleAllData = async() => {
-    const {data} = await axios.get(`https://disease.sh/v3/covid-19/countries`)
-
-    setData(data)
-  }
-
-  console.log(data, 'aqui os dados')
-
   useEffect(() => {
     handleAllData();
   }, []);
@@ -51,6 +46,12 @@ function Index() {
     // Call filterByContinent whenever data changes
     filterByContinent();
   }, [data]);
+
+  const handleAllData = async() => {
+    const {data} = await axios.get(`https://disease.sh/v3/covid-19/countries`)
+
+    setData(data)
+  }
 
   const filterByContinent = () => {
     // Create temporary objects to hold filtered data
@@ -137,7 +138,13 @@ function Index() {
     },
   ]
 
-  console.log(filteredData.asia, '12312412')
+  const handleTabChange = (param) => {
+    if(param !== tabIndex) {
+      setTabIndex(param)
+    }
+
+  }
+
   return (
     <Container>
       <Section id="main-section">
@@ -145,12 +152,31 @@ function Index() {
           carouselData={carouselData}
         />
 
-        <TableComponent filteredData={filteredData.asia} label="Asia"/>
-        <TableComponent filteredData={filteredData.africa} label="Africa"/>
-        <TableComponent filteredData={filteredData.europe} label="Europe"/>
-        <TableComponent filteredData={filteredData.ausOceania} label="Australia / Oceania"/>
-        <TableComponent filteredData={filteredData.northAmerica} label="North America"/>
-        <TableComponent filteredData={filteredData.southAmerica} label="South America"/>
+        <div>
+          <TabsComponent
+            tabIndex={tabIndex}
+            handleTabChange={handleTabChange}
+          />
+
+          {
+            tabIndex === 0 ? (
+              <>
+                <TableComponent filteredData={filteredData.asia} label="Asia"/>
+                <TableComponent filteredData={filteredData.africa} label="Africa"/>
+                <TableComponent filteredData={filteredData.europe} label="Europe"/>
+                <TableComponent filteredData={filteredData.ausOceania} label="Australia / Oceania"/>
+                <TableComponent filteredData={filteredData.northAmerica} label="North America"/>
+                <TableComponent filteredData={filteredData.southAmerica} label="South America"/>
+              </>
+            ) : (
+              <>
+                <Charts/>
+              </>
+
+            )
+          }
+
+        </div>
 
       </Section>
 
