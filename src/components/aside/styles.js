@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 export const Container = styled.aside`
-  background-color: #271A30;
-  max-width: 15%;
+  background-color: #1A0F52;
+  max-width: 8%;
   width: 100%;
   padding: 2.5rem;
-  height: 100%;
+
 `
 
 export const Navbar = styled.nav`
@@ -21,6 +21,14 @@ export const ListItems = styled.li`
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  & svg {
+    max-width: 50px;
+    width: 100%;
+    fill: #fff;
+  }
 `
 
 export const ListItemsLink = styled.a`
@@ -28,8 +36,8 @@ export const ListItemsLink = styled.a`
   font-size: 1.2rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background-position 275ms ease;
-  background: linear-gradient(to right, RGB(200, 200, 210), RGB(200, 200, 210) 50%, #F4F2F4 50%);
+  transition: background-position 475ms ease-in-out;
+  background: linear-gradient(to right, var(--global-bg), #4528d7 50%, #3FBAFF 50%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
