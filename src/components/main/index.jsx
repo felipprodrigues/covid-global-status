@@ -8,13 +8,12 @@ import {
 
 // components
 import CarouselComponent from './carousel'
-<<<<<<< Updated upstream
-=======
+
 import TableComponent from './tables'
 import TabsComponent from './tabs'
 import Charts from './charts'
 import Cards from './cards'
->>>>>>> Stashed changes
+
 
 // HELPERS
 // import handleSum from '../../helpers/handleSum'
@@ -98,13 +97,6 @@ function Index() {
 
   return (
     <Container>
-<<<<<<< Updated upstream
-      <Section>
-
-      <CarouselComponent
-        filteredData={filteredData}
-      />
-=======
       <Section id="main-section">
         <Cards
           carouselData={carouselData}
@@ -139,7 +131,6 @@ function Index() {
           }
 
         </div>
->>>>>>> Stashed changes
 
       </Section>
 
