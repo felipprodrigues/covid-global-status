@@ -9,6 +9,13 @@ export const Container = styled.div`
 `
 
 export const Section = styled.section`
+  &:last-child {
+    padding: 0 3rem;
+  }
 
+  &#main-section {
+    display: grid;
+    grid-gap: 2.5rem
+  }
 `
 

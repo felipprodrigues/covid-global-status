@@ -9,25 +9,43 @@ import {
   ListItemsLink
 } from './styles'
 
+import { AiOutlineHome } from "react-icons/ai";
+import { MdOutlineCoronavirus } from "react-icons/md";
+import { HiOutlineNewspaper } from "react-icons/hi";
+
 function Index() {
 
-  const items = ['Home', 'Dashboard', 'Statistics' ]
+  const data = [
+    {
+      label: 'Overview',
+      icon: <AiOutlineHome/>
+    },
+    {
+      label: 'Symptoms',
+      icon: <MdOutlineCoronavirus/>
+    },
+    {
+      label: 'News',
+      icon: <HiOutlineNewspaper/>
+    }
+  ]
 
   return (
     <Container>
       <Navbar>
         <List>
-          <ListItems>
-            {items.map(items => {
-              return (
-                <>
+          {data.map(item => {
+            return (
+              <>
+                <ListItems>
+                  {item.icon}
                   <ListItemsLink>
-                    {items}
+                    {item.label}
                   </ListItemsLink>
-                </>
-              )
-            })}
-          </ListItems>
+                </ListItems>
+              </>
+            )
+          })}
         </List>
       </Navbar>
     </Container>

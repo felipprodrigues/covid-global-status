@@ -1,102 +1,84 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  display: grid;
-  /* grid-template-columns: 50px 1fr 50px; */
-  position: relative;
+  /* width: 750px; */
 `
-
-export const ButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-export const ButtonHolder = styled.div`
-  background-color: #2F2A46;
-  border-radius: 50%;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  filter: brightness(.9);
-  transition: all .25s linear;
-
-  &:hover {
-    filter: brightness(1);
-    -webkit-box-shadow: 0px 0px 8px 0px #514B77;
-    -moz-box-shadow: 0px 0px 8px 0px #514B77;
-    box-shadow: 0px 0px 8px 0px #514B77;
-
-    & a {
-      transform: scale(1.2);
-    }
-  }
-  `
-
-export const Button = styled.a`
-  display: inline-flex;
-  transition: all .07s linear;
-
-  & > svg {
-    width: 25px;
-    height: 25px;
-  }
-`
-
-// export const Carousel = styled.div`
-//   overflow: hidden;
-//   background-color: ghostwhite;
-//   display: flex;
-//   justify-content: center;
-// `
 
 export const Main = styled.div`
   display: flex;
+  border-radius: 10px;
+  max-width: 750px;
+  overflow: hidden;
 
+  & * > .selected .carousel__cards  {
+    background-image: linear-gradient(
+      140deg,
+      hsl(201deg 100% 70%) 0%,
+      hsl(201deg 100% 64%) 7%,
+      hsl(203deg 100% 59%) 17%,
+      hsl(207deg 100% 59%) 29%,
+      hsl(217deg 100% 64%) 43%,
+      hsl(233deg 100% 70%) 62%,
+      hsl(255deg 100% 69%) 99%
+    );
+    /* background-image: linear-gradient(
+  145deg,
+  hsl(178deg 70% 75%) 0%,
+  hsl(185deg 80% 69%) 0%,
+  hsl(190deg 91% 64%) 1%,
+  hsl(192deg 100% 58%) 4%,
+  hsl(193deg 100% 50%) 8%,
+  hsl(196deg 100% 50%) 15%,
+  hsl(204deg 100% 61%) 26%,
+  hsl(216deg 100% 69%) 44%,
+  hsl(236deg 100% 76%) 72%,
+  hsl(261deg 85% 72%) 100%
+); */
+  }
+
+  & * > .slider.animated > .slide {
+    margin-right: 1.5rem;
+  }
+`
+
+export const Cards = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: #271A30;
   border-radius: 10px;
   padding: 1.5rem;
-
+  width: 100%;
 `
 
-export const MainCards = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0 1.5rem;
-  background-color: green;
-  border-radius: 10px;
-  padding: 1.5rem;
-`
+export const CardImageHolder = styled.div`
+  margin: 1rem 0;
 
-export const CardsImage = styled.img`
-  max-width: 350px;
-  /* width: 100%; */
-`
-
-export const CardsContent = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  & > h4 {
-    margin-bottom: 0;
-  }
-  & > h2 {
-    margin-top: 0;
+  & > span {
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    font-weight: 100;
+    font-size: 14px;
   }
 `
 
-export const CardsContentMain = styled.div`
+export const CardImage = styled.img`
+  max-width: 50px;
+  width: 100%;
+`
+
+export const CardTitle = styled.h2`
+  margin-top: .25rem;
+`
+
+export const CardContent = styled.div`
   display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr)
 `
 
-export const CardsContentSpan = styled.span`
-  color: #fff;
-
-  & > h2 {
-    margin: .5rem 0;
-  }
+export const CardContentItems = styled.div`
+  display: inline-block;
+  text-align: left;
 `
+
+

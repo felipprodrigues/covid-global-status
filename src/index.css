@@ -1,9 +1,7 @@
--var--global-bg {
-  background-color: #B1B5F0;
+:root {
+  --global-bg : rgb(248, 252, 255);
 }
--var--global-bg {
-  background-color: #9499ff;
-}
+
 
 html {
   line-height: 1.15; /* 1 */
@@ -12,18 +10,7 @@ html {
 
 body {
   margin: 0;
-  background-image: linear-gradient(
-    150deg,
-    hsl(236deg 23% 25%) 0%,
-    hsl(238deg 25% 25%) 13%,
-    hsl(242deg 26% 25%) 25%,
-    hsl(247deg 28% 24%) 37%,
-    hsl(250deg 30% 24%) 50%,
-    hsl(253deg 32% 24%) 63%,
-    hsl(255deg 33% 23%) 75%,
-    hsl(260deg 35% 23%) 87%,
-    hsl(263deg 36% 23%) 100%
-  );
+  background-color: var(--global-bg);
   font-family: 'Roboto', sans-serif;
 }
 
