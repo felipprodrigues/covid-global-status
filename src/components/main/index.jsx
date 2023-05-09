@@ -8,6 +8,13 @@ import {
 
 // components
 import CarouselComponent from './carousel'
+<<<<<<< Updated upstream
+=======
+import TableComponent from './tables'
+import TabsComponent from './tabs'
+import Charts from './charts'
+import Cards from './cards'
+>>>>>>> Stashed changes
 
 // HELPERS
 // import handleSum from '../../helpers/handleSum'
@@ -91,11 +98,48 @@ function Index() {
 
   return (
     <Container>
+<<<<<<< Updated upstream
       <Section>
 
       <CarouselComponent
         filteredData={filteredData}
       />
+=======
+      <Section id="main-section">
+        <Cards
+          carouselData={carouselData}
+        />
+
+        {/* <CarouselComponent
+          carouselData={carouselData}
+        /> */}
+
+        <div>
+          <TabsComponent
+            tabIndex={tabIndex}
+            handleTabChange={handleTabChange}
+          />
+
+          {
+            tabIndex === 0 ? (
+              <>
+                <TableComponent filteredData={filteredData.asia} label="Asia"/>
+                <TableComponent filteredData={filteredData.africa} label="Africa"/>
+                <TableComponent filteredData={filteredData.europe} label="Europe"/>
+                <TableComponent filteredData={filteredData.ausOceania} label="Australia / Oceania"/>
+                <TableComponent filteredData={filteredData.northAmerica} label="North America"/>
+                <TableComponent filteredData={filteredData.southAmerica} label="South America"/>
+              </>
+            ) : (
+              <>
+                <Charts/>
+              </>
+
+            )
+          }
+
+        </div>
+>>>>>>> Stashed changes
 
       </Section>
 
