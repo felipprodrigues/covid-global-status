@@ -22,3 +22,6 @@ export const CardLabel = styled.h4`
 
 `
 
+export const CardBigNumber = styled.h2`
+  color: black;
+`

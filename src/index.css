@@ -1,7 +1,13 @@
 :root {
+  /* bg */
   --global-bg : rgb(248, 252, 255);
-}
 
+  /* fonts */
+  --cards-font-watermelon: #FD4D70;
+  --cards-font-pumpkin: #FF7419;
+  --cards-font-lima: #77D711;
+  --cards-font-heliotrope: #9273FF;
+}
 
 html {
   line-height: 1.15; /* 1 */

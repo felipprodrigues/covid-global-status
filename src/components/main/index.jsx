@@ -11,10 +11,6 @@ import CarouselComponent from './carousel'
 import TableComponent from './tables'
 import TabsComponent from './tabs'
 import Charts from './charts'
-
-import TableComponent from './tables'
-import TabsComponent from './tabs'
-import Charts from './charts'
 import Cards from './cards'
 
 
@@ -156,6 +152,7 @@ function Index() {
       <Section id="main-section">
         <Cards
           carouselData={carouselData}
+          data={filteredData}
         />
 
         {/* <CarouselComponent
@@ -190,7 +187,7 @@ function Index() {
 
       </Section>
 
-      <Section
+      {/* <Section
         style={{display: 'flex', flexDirection: 'column'}}
       >
         extra
@@ -199,7 +196,7 @@ function Index() {
         extra
         extra
 
-      </Section>
+      </Section> */}
     </Container>
   )
 }

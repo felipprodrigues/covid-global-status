@@ -3,17 +3,41 @@ import React from 'react'
 import {
   Container,
   Card,
-  CardLabel
+  CardLabel,
+  CardBigNumber
 } from './styles'
 
-function index() {
+// HELPERS
+import handleSum from '../../helpers/handleSum'
+
+function index({
+  data,
+  carouselData
+}) {
+
+
 
   const label = [
-    'Aggregated Confirmed',
-    'Active Confirmed',
-    'Recovered',
-    'Death'
+    {
+      label: 'Aggregated Confirmed',
+      data: carouselData
+    },
+    {
+      label: 'Active Confirmed',
+      data: carouselData
+    },
+    {
+      label: 'Recovered',
+      data: carouselData
+    },
+    {
+      label: 'Death',
+      data: carouselData
+    },
   ]
+
+  console.log(carouselData.map(item => item.recoveryData), 'aqui')
+  // console.log(carouselData.recoveryData, '1241412')
 
   return (
     <Container>
@@ -21,7 +45,13 @@ function index() {
         return (
           <>
             <Card>
-              <CardLabel>{item}</CardLabel>
+              <CardLabel>
+                {item.label}
+              </CardLabel>
+
+              <CardBigNumber>
+                {carouselData.map(item => item.recoveryData)}
+              </CardBigNumber>
             </Card>
 
           </>
