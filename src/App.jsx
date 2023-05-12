@@ -4,6 +4,8 @@ import './App.css'
 import Header from './components/header'
 import Aside from './components/aside'
 import Main from './components/main'
+import { ThemeProvider } from 'styled-components';
+import myTheme from './styles/theme'
 
 function App() {
   //! HEADER
@@ -23,16 +25,18 @@ function App() {
 
 
   return (
-    <div className="container">
-      <Aside />
+    // <ThemeProvider theme={myTheme}>
+      <div className="container">
+        <Aside />
 
-      <div className="container__content">
-        <Header className="header"/>
+        <div className="container__content">
+          {/* <Header className="header"/> */}
 
-        <Main />
+          <Main />
 
+        </div>
       </div>
-    </div>
+    // </ThemeProvider>
   )
 }
 

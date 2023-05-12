@@ -11,6 +11,8 @@ import CarouselComponent from './carousel'
 import TableComponent from './tables'
 import TabsComponent from './tabs'
 import Charts from './charts'
+import Cards from './cards'
+
 
 // HELPERS
 import handleSum from '../helpers/handleSum'
@@ -148,9 +150,14 @@ function Index() {
   return (
     <Container>
       <Section id="main-section">
-        <CarouselComponent
+        <Cards
           carouselData={carouselData}
+          data={filteredData}
         />
+
+        {/* <CarouselComponent
+          carouselData={carouselData}
+        /> */}
 
         <div>
           <TabsComponent
@@ -180,7 +187,7 @@ function Index() {
 
       </Section>
 
-      <Section
+      {/* <Section
         style={{display: 'flex', flexDirection: 'column'}}
       >
         extra
@@ -189,7 +196,7 @@ function Index() {
         extra
         extra
 
-      </Section>
+      </Section> */}
     </Container>
   )
 }
